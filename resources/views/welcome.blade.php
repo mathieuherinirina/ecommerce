@@ -3,7 +3,12 @@
 @section('pageTitle', 'Home')
 
 @section('content')
-<p>Welcome page</p>
+
+<div class="banner-home">
+  <h1>Ecom</h1>
+  <h1>Bienvenue dans notre plateforme de ventesd d'appareils électroniques</h1>
+  
+</div>
 
 @endsection
 
