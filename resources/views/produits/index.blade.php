@@ -30,10 +30,11 @@
                         <a href="{{route('produits', $produit->id)}}" class="btn btn-info m-1">Details</a>
                         <a href="{{route('produits/modifier', $produit->id)}}" class="btn btn-primary m-1">Edit</a>
 
+                        @method('DELETE')
                         <form action="{{ route('produits/supprimer', $produit->id) }}" method="POST">
                             <input type="hidden" name="_method" value="DELETE">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <button class="btn btn-danger m-1">Delete Produit</button>
+                            <!-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> -->
+                            <button class="btn btn-danger m-1">Delete Product</button>
                         </form>
                     </div>
 

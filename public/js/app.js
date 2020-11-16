@@ -19343,6 +19343,13 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+$(document).ready(function () {
+  $('.choose-category').click(function () {
+    $('input[name=produit_categorie_id]').val($(this).attr('data-id'));
+    $('#ddlCat').text($(this).text());
+  });
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -19384,8 +19391,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\wamp64\www\ecom_auth\ecom_auth\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\wamp64\www\ecom_auth\ecom_auth\resources\css\app.css */"./resources/css/app.css");
+__webpack_require__(/*! D:\wamp64\www\ecommerce\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\wamp64\www\ecommerce\resources\css\app.css */"./resources/css/app.css");
 
 
 /***/ })
