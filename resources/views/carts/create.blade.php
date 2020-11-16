@@ -4,11 +4,11 @@
 @section('pageTitle', 'Create A Cart')
 
 @section('content')
-    <h1 class="display-6">Create New Cart</h1>
+  
 
     <hr/>
 
-  <form action="/creer" method="POST" >
+  <form action="/carts/creer" method="POST" >
     <div class="form-group">
       <label for="cart_user_id">
         User ID

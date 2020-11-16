@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <h1 class="display-6">Edit Categorie</h1>
+    <h1 class="display-6">Modifier Categorie</h1>
 
     <hr/>
 

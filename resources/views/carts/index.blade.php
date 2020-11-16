@@ -25,10 +25,10 @@
                     <div class="d-flex">
                         <a href="{{route('carts', $cart->id)}}" class="btn btn-info m-1">Details</a>
                         <a href="{{route('carts/modifier', $cart->id)}}" class="btn btn-primary m-1">Edit</a>
-
+                        @method('DELETE')
                         <form action="{{ route('carts/supprimer', $cart->id) }}" method="POST">
                             <input type="hidden" name="_method" value="DELETE">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <!-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> -->
                             <button class="btn btn-danger m-1">Delete Cart</button>
                         </form>
                     </div>

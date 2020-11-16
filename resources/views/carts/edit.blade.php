@@ -8,8 +8,7 @@
 
     <hr/>
 
-    <form action="/modifier/{{$cart->id}}" method="POST" >
-      <input type="hidden" name="_method" value="PUT">
+    <form action="{{ route('carts/modifier', $categorie->id) }}" method="POST" >      <input type="hidden" name="_method" value="PUT">
       <input type="hidden" name="id" value="{{ $cart->id}}">
       <div class="form-group">
         <label for="cart_user_id">

@@ -57,9 +57,9 @@ Route::post('carts/creer/','CartController@store')->name('carts/creer');
 Route::get('carts/{id}','CartController@show')->name('carts/{id}');
 
 Route::get('carts/modifier/{id}','CartController@edit')->name('carts/modifier');
-Route::post('carts/modifier/{id}','CartController@update')->name('carts/modifier');
+Route::put('carts/modifier/{id}','CartController@update')->name('carts/modifier');
 
-Route::get('carts/supprimer/{id}','CartController@destroy')->name('carts/supprimer');
+Route::delete('carts/supprimer/{id}','CartController@destroy')->name('carts/supprimer');
 
 // Route::resource('produits', ProduitController::class)->names(['produits' => 'produits.index']);
 // Route::resource('produits', ProduitController::class)->names(['produits' => 'produits.store']);

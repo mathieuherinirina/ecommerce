@@ -48,7 +48,7 @@ class CartController extends Controller
 
         Cart::create($input);
 
-        return redirect()->route('carts.index');
+        return redirect()->route('carts');
     }
 
     /**
@@ -98,7 +98,7 @@ class CartController extends Controller
 
         $cart->fill($input)->save();
 
-        return redirect()->route('carts.index');
+        return redirect()->route('carts');
     }
 
     /**
@@ -113,6 +113,6 @@ class CartController extends Controller
 
         $cart->delete();
         
-        return redirect()->route('carts.index');
+        return redirect()->route('carts');
     }
 }
