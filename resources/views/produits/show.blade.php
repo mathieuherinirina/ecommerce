@@ -14,7 +14,7 @@
         <dt>categorie_id</dt>
         <dd>{{$produit->produit_categorie_id}}</dd>
 
-        <img src="{{ env('APP_URL') }}{{$produit->produit_img_url}}">
+        <!-- <img src="{{$produit->produit_img_url}}"> -->
 
         <dt>Prix</dt>
         <dd>{{$produit->produit_prix}}</dd>
@@ -23,13 +23,14 @@
         <dd>{{$produit->produit_description}}</dd>
     </dl>
 
-    <!-- <div class="d-flex">
-        <a href="{{route('produits.edit', $produit->id)}}" class="btn btn-primary m-1">Edit</a>
+    <div class="d-flex">
+        <a href="{{route('produits/modifier', $produit->id)}}" class="btn btn-primary m-1">Edit</a>
 
-        <form action="{{ route('produits.destroy', $produit->id) }}" method="POST">
+        @method('DELETE')
+        <form action="{{ route('produits/supprimer', $produit->id) }}" method="POST">
             <input type="hidden" name="_method" value="DELETE">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <button class="btn btn-danger m-1">Delete User</button>
+            <!-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> -->
+            <button class="btn btn-danger m-1">Delete Product</button>
         </form>
-    </div> -->
+    </div>
 @endsection

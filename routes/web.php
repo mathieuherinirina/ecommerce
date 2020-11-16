@@ -31,9 +31,9 @@ Route::post('produits/creer/','ProduitController@store')->name('produits/creer')
 Route::get('produits/{id}','ProduitController@show')->name('produits/{id}');
 
 Route::get('produits/modifier/{id}','ProduitController@edit')->name('produits/modifier');
-Route::post('produits/modifier/{id}','ProduitController@update')->name('produits/modifier');
+Route::put('produits/modifier/{id}','ProduitController@update')->name('produits/modifier');
 
-Route::get('produits/supprimer/{id}','ProduitController@destroy')->name('produits/supprimer');
+Route::delete('produits/supprimer/{id}','ProduitController@destroy')->name('produits/supprimer');
 
 // categories
 Route::get('categories','CategorieController@index')->name('categories');

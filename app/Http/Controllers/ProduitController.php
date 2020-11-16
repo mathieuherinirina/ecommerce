@@ -50,7 +50,7 @@ class ProduitController extends Controller
 
         Produit::create($input);
 
-        return redirect()->route('produits.index');
+        return redirect()->route('produits');
     }
 
     /**
@@ -101,7 +101,7 @@ class ProduitController extends Controller
 
         $produit->fill($input)->save();
 
-        return redirect()->route('produits.index'); 
+        return redirect()->route('produits'); 
     }
 
     /**
@@ -116,6 +116,6 @@ class ProduitController extends Controller
 
         $produit->delete();
         
-        return redirect()->route('produits.index');
+        return redirect()->route('produits');
     }
 }

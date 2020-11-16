@@ -8,7 +8,7 @@
 
     <hr/>
 
-    <form action="/ecom/public/produits/{{$produit->id}}" method="POST" >
+    <form action="{{ route('produits/modifier', $produit->id) }}" method="POST" >
       <input type="hidden" name="_method" value="PUT">
       <input type="hidden" name="id" value="{{ $produit->id}}">
       <div class="form-group">
