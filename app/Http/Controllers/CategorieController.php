@@ -17,7 +17,7 @@ class CategorieController extends Controller
     {
         $categories = Categorie::all();
         $currentUser = Session::get('currentUser');
-        return view('categories.index', compact('categories','categories'))->with('currentUser', $currentUser);
+        return view('categories.index', compact('categories','categories'))->with('currentUser', $currentUser)->with('categories', $categories);
     }
 
     /**
@@ -27,8 +27,9 @@ class CategorieController extends Controller
      */
     public function create()
     {
+        $categories = Categorie::all();
         $currentUser = Session::get('currentUser');
-        return view('categories.create')->with('currentUser', $currentUser);
+        return view('categories.create')->with('currentUser', $currentUser)->with('categories', $categories);
     }
 
     /**
@@ -62,7 +63,7 @@ class CategorieController extends Controller
     {
         $categorie = Categorie::findOrFail($id);
         $currentUser = Session::get('currentUser');
-        return view('categories.show', compact('categorie','categorie'))->with('currentUser', $currentUser);
+        return view('categories.show', compact('categorie','categorie'))->with('currentUser', $currentUser)->with('categories', $categories);
     }
 
     /**
@@ -75,7 +76,7 @@ class CategorieController extends Controller
     {
         $categorie = Categorie::find($id);
         $currentUser = Session::get('currentUser');
-        return view('categories.edit', compact('categorie','categorie'))->with('currentUser', $currentUser);
+        return view('categories.edit', compact('categorie','categorie'))->with('currentUser', $currentUser)->with('categories', $categories);
     }
 
     /**

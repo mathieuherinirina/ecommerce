@@ -16,6 +16,7 @@ class ProduitController extends Controller
      */
     public function index()
     {
+        $categories = Categorie::all();
         $produits = Produit::all();
         // $categories = Categorie::all();
         foreach ($produits as $key => $value) {
@@ -25,7 +26,7 @@ class ProduitController extends Controller
         }
         
         $currentUser = Session::get('currentUser');
-        return view('produits.index', compact('produits','produits'))->with('currentUser', $currentUser);
+        return view('produits.index', compact('produits','produits'))->with('currentUser', $currentUser)->with('categories', $categories);
     }
 
     /**
@@ -35,9 +36,9 @@ class ProduitController extends Controller
      */
     public function create(Request $request)
     {
-      $categoriesList = Categorie::all();
+      $categories = Categorie::all();
       $currentUser = Session::get('currentUser');
-      return view('produits.create', compact('categoriesList', 'categoriesList'))->with('currentUser', $currentUser);
+      return view('produits.create', compact('categories', 'categories'))->with('currentUser', $currentUser);
     }
 
     /**
@@ -71,9 +72,10 @@ class ProduitController extends Controller
      */
     public function show($id)
     {
+        $categories = Categorie::all();
         $produit = Produit::findOrFail($id);
         $currentUser = Session::get('currentUser');
-        return view('produits.show', compact('produit','produit'))->with('currentUser', $currentUser);
+        return view('produits.show', compact('produit','produit'))->with('currentUser', $currentUser)->with('categories', $categories);
     }
 
     /**
@@ -84,9 +86,10 @@ class ProduitController extends Controller
      */
     public function edit($id)
     {
+        $categories = Categorie::all();
         $produit = Produit::find($id);
         $currentUser = Session::get('currentUser');
-        return view('produits.edit', compact('produit','produit'))->with('currentUser', $currentUser);
+        return view('produits.edit', compact('produit','produit'))->with('currentUser', $currentUser)->with('categories', $categories);
     }
 
     /**

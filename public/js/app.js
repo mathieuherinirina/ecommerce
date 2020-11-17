@@ -19348,6 +19348,9 @@ $(document).ready(function () {
     $('input[name=produit_categorie_id]').val($(this).attr('data-id'));
     $('#ddlCat').text($(this).text());
   });
+  $('.dropdown-categorie').click(function () {
+    $('#dropdownCategorie').text($(this).text());
+  });
 });
 
 /***/ }),
@@ -19391,8 +19394,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\wamp64\www\ecommerce\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\wamp64\www\ecommerce\resources\css\app.css */"./resources/css/app.css");
+__webpack_require__(/*! C:\wamp64\www\ecommerce\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\wamp64\www\ecommerce\resources\css\app.css */"./resources/css/app.css");
 
 
 /***/ })
