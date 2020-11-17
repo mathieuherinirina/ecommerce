@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/', 'HomeController@index')->name('home');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+  return route('home');
+})->name('dashboard');
 // route produits
 
 Route::get('produits','ProduitController@index')->name('produits');

@@ -11,11 +11,4 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
-    public function getAllproducts()
-    {
-        $produits = Produit::all();
-        // return $produits;
-        return view('homepage')->with('produits', $produits);
-    }
 }
