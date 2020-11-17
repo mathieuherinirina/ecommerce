@@ -10,17 +10,6 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/carts') }}">Mon panier</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdownCategorie" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-              Categories
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownCategorie">
-              @foreach($categories as $categorie)
-                <a class="dropdown-item dropdown-categorie" href="#">{{$categorie->categorie_nom}}</a>
-              @endforeach  
-            </div>
-          </li>
           <div class="dropdown-divider"></div>
           @if($currentUser->count() > 0 && $currentUser->role === 'admin')
             <li class="nav-item">

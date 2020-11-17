@@ -27,6 +27,6 @@ class HomeController extends Controller
       $currentUser = auth()->user()->count() > 0 ? auth()->user() : (object)[];
       Session::put('currentUser', $currentUser);
       $currentUser = Session::get('currentUser');
-      return view('welcome')->with('produits', $produits)->with('currentUser', $currentUser)->with('categories', $categories);
+      return view('welcome')->with('produits', $produits)->with('currentUser', $currentUser);
   }
 }
