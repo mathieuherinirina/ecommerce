@@ -57,31 +57,3 @@ Route::get('carts/modifier/{id}','CartController@edit')->name('carts/modifier');
 Route::put('carts/modifier/{id}','CartController@update')->name('carts/modifier');
 
 Route::delete('carts/supprimer/{id}','CartController@destroy')->name('carts/supprimer');
-
-// Route::resource('produits', ProduitController::class)->names(['produits' => 'produits.index']);
-// Route::resource('produits', ProduitController::class)->names(['produits' => 'produits.store']);
-// Route::resource('produits', ProduitController::class)->names(['produits' => 'produits.create']);
-// Route::resource('produits', ProduitController::class)->names(['produits' => 'produits.show']);
-// Route::resource('produits', ProduitController::class)->names(['produits' => 'produits.update']);
-// Route::resource('produits', ProduitController::class)->names(['produits' => 'produits.destroy']);
-// Route::resource('produits', ProduitController::class)->names(['produits' => 'produits.edit']);
-
-// //route categories
-
-// Route::resource('categories', CategorieController::class)->names(['categories' => 'categories.index']);
-// Route::resource('categories', CategorieController::class)->names(['categories' => 'categories.store']);
-// Route::resource('categories', CategorieController::class)->names(['categories' => 'categories.create']);
-// Route::resource('categories', CategorieController::class)->names(['categories' => 'categories.show']);
-// Route::resource('categories', CategorieController::class)->names(['categories' => 'categories.update']);
-// Route::resource('categories', CategorieController::class)->names(['categories' => 'categories.destroy']);
-// Route::resource('categories', CategorieController::class)->names(['categories' => 'categories.edit']);
-
-// //route carts
-
-// Route::resource('carts', CartController::class)->names(['carts' => 'carts.index']);
-// Route::resource('carts', CartController::class)->names(['carts' => 'carts.store']);
-// Route::resource('carts', CartController::class)->names(['carts' => 'carts.create']);
-// Route::resource('carts', CartController::class)->names(['carts' => 'carts.show']);
-// Route::resource('carts', CartController::class)->names(['carts' => 'carts.update']);
-// Route::resource('carts', CartController::class)->names(['carts' => 'carts.destroy']);
-// Route::resource('carts', CartController::class)->names(['carts' => 'carts.edit']);
