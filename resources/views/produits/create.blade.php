@@ -13,7 +13,7 @@
       </button>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-        @foreach($categoriesList as $category)
+        @foreach($categories as $category)
           <button class="dropdown-item choose-category" data-id={{ $category->id }}>
             {{ $category->categorie_nom }}
           </button>

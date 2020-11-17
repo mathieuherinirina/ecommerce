@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Categorie;
 use Illuminate\Http\Request;
 use Session;
 
@@ -16,8 +17,9 @@ class CartController extends Controller
     public function index()
     {
         $carts = Cart::all();
+        $categories = Categorie::all();
         $currentUser = Session::get('currentUser');
-        return view('carts.index', compact('carts','carts'))->with('currentUser', $currentUser);
+        return view('carts.index', compact('carts','carts'))->with('currentUser', $currentUser)->with('categories', $categories);
     }
 
     /**
@@ -27,8 +29,9 @@ class CartController extends Controller
      */
     public function create()
     {
+        $categories = Categorie::all();
         $currentUser = Session::get('currentUser');
-        return view('carts.create')->with('currentUser', $currentUser);
+        return view('carts.create')->with('currentUser', $currentUser)->with('categories', $categories);
     }
 
     /**
@@ -60,9 +63,10 @@ class CartController extends Controller
      */
     public function show($id)
     {
+        $categories = Categorie::all();
         $cart = Cart::findOrFail($id);
         $currentUser = Session::get('currentUser');
-        return view('carts.show', compact('cart','cart'))->with('currentUser', $currentUser);
+        return view('carts.show', compact('cart','cart'))->with('currentUser', $currentUser)->with('categories', $categories);
  
     }
 
@@ -74,9 +78,10 @@ class CartController extends Controller
      */
     public function edit($id)
     {
+        $categories = Categorie::all();
         $cart = Cart::find($id);
         $currentUser = Session::get('currentUser');
-        return view('carts.edit', compact('cart','cart'))->with('currentUser', $currentUser);
+        return view('carts.edit', compact('cart','cart'))->with('currentUser', $currentUser)->with('categories', $categories);
  
     }
 
