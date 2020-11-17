@@ -3,12 +3,10 @@
 @section('pageTitle', 'Edit Produits Details')
 
 @section('content')
+  <div class="container">
+    <h1>Modifier le produit : {{$produit->produit_nom}}</h1>
 
-    <h1 class="display-6">Edit Produits</h1>
-
-    <hr/>
-
-    <form action="{{ route('produits/modifier', $produit->id) }}" method="POST" >
+    <form action="{{ route('produits/modifier', $produit->id) }}" method="POST" class="edit-form">
       <input type="hidden" name="_method" value="PUT">
       <input type="hidden" name="id" value="{{ $produit->id}}">
       <div class="form-group">
@@ -20,14 +18,14 @@
 
       <div class="form-group">
         <label for="produit_categorie_id">
-          Categorie id
+          Categorie
         </label>
         <input type="text" name="produit_categorie_id" class="form-control" value="{{$produit->produit_categorie_id}}">
       </div>
 
       <div class="form-group">
         <label for="produit_img_url">
-          Image_url
+          Image
         </label>
         <input type="text" name="produit_img_url" class="form-control" value="{{$produit->produit_img_url}}">
       </div>
@@ -47,7 +45,7 @@
       </div>
 
       @method('PUT')
-      <input type="submit" value="Modifier">
+      <input type="submit" value="Modifier" class="btn btn-success ml-auto">
     </form>
-      
+  </div>
 @endsection

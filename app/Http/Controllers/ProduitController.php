@@ -16,6 +16,14 @@ class ProduitController extends Controller
     public function index()
     {
         $produits = Produit::all();
+        // $categories = Categorie::all();
+        foreach ($produits as $key => $value) {
+            $categoryName = Categorie::find($value['produit_categorie_id'])->value('categorie_nom');
+            $produits[$key]['categoryName'] = $categoryName;
+        }
+        
+        // $response = [$produits, $categories];
+        // return $produits;
         return view('produits.index', compact('produits','produits'));
     }
 

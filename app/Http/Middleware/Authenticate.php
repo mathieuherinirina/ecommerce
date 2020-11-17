@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Middleware;
-
+use App\Models\Produit;
+use App\Models\Categorie;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 
 class Authenticate extends Middleware

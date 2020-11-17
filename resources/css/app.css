@@ -2,12 +2,102 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+.navbar {
+  width: 100%;
+}
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.content {
+  padding: 56px 0;
+  background-color: #ebebeb;
+}
+
 .banner-home {
-  background: grey;
-  height: 200px;
+  background: url('http://localhost:8000/images/banner.jpg') rgba(0, 0, 0, .7);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-blend-mode: multiply;
+  height: 400px;
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 0 50px;
+}
+
+h1 {
+  font-size: 40px;
+  text-align: center;
+  font-weight: bold;
+  margin: 30px 0;
+}
+
+.table {
+  background-color: #282828;
+  color: white;
+}
+
+.table thead th {
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.table tbody,
+.bg-gray-100 {
+  background-color: #464646;
+}
+
+.table tbody td {
+  border-top: 1px dashed #656667;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+}
+
+.btn-creer {
+  margin: 20px 0 20px 0;
+}
+
+.edit-form,
+.create-form,
+.fiche {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.fiche .btn-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.fiche dt {
+  margin-top: 20px;
+}
+
+
+form label {
+  color: #aeadad;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.ddlCat {
+  border: 1px solid #ced4da;
+  padding: 10px;
+  width: 100%;
+  text-align: left;
+  border-radius: 5px;
+  color: #aeb8cc;
 }
