@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Produit;
 use App\Models\Categorie;
 use Illuminate\Http\Request;
+use Session;
 
 class ProduitController extends Controller
 {
@@ -22,9 +23,8 @@ class ProduitController extends Controller
             $produits[$key]['categoryName'] = $categoryName;
         }
         
-        // $response = [$produits, $categories];
-        // return $produits;
-        return view('produits.index', compact('produits','produits'));
+        $currentUser = Session::get('currentUser');
+        return view('produits.index', compact('produits','produits'))->with('currentUser', $currentUser);
     }
 
     /**
@@ -35,7 +35,8 @@ class ProduitController extends Controller
     public function create(Request $request)
     {
       $categoriesList = Categorie::all();
-      return view('produits.create', compact('categoriesList', 'categoriesList'));
+      $currentUser = Session::get('currentUser');
+      return view('produits.create', compact('categoriesList', 'categoriesList'))->with('currentUser', $currentUser);
     }
 
     /**
@@ -70,7 +71,8 @@ class ProduitController extends Controller
     public function show($id)
     {
         $produit = Produit::findOrFail($id);
-        return view('produits.show', compact('produit','produit'));
+        $currentUser = Session::get('currentUser');
+        return view('produits.show', compact('produit','produit'))->with('currentUser', $currentUser);
     }
 
     /**
@@ -82,8 +84,8 @@ class ProduitController extends Controller
     public function edit($id)
     {
         $produit = Produit::find($id);
-        
-        return view('produits.edit', compact('produit','produit'));
+        $currentUser = Session::get('currentUser');
+        return view('produits.edit', compact('produit','produit'))->with('currentUser', $currentUser);
     }
 
     /**

@@ -11,22 +11,33 @@
             <a class="nav-link" href="{{ url('/carts') }}">Mon panier</a>
           </li>
           <div class="dropdown-divider"></div>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url('/produits') }}">Gérer les Produits</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url('/categories') }}">Gérer les Catégories</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url('/users') }}">Gérer les Utilisateurs</a>
-          </li>
+          @if($currentUser->count() > 0 && $currentUser->role === 'admin')
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url('/produits') }}">Gérer les Produits</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url('/categories') }}">Gérer les Catégories</a>
+            </li>
+          @endif
         </ul>
         @if (Route::has('login'))
             <ul class="navbar-nav ml-auto">
                 @auth
-                  <li class="nav-item">
-                    <p>Username</p>
-                  </li>
+                  @if($currentUser->count() > 0)
+                    <p class="text-white">{{ $currentUser->name }}</p>
+                    <li class="nav-item">
+                      <!-- Authentication -->
+                        <form method="POST" action="{{ route('logout') }}" class="logout-form">
+                            @csrf
+
+                            <x-jet-dropdown-link href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                            this.closest('form').submit();">
+                                {{ __('Logout') }}
+                            </x-jet-dropdown-link>
+                        </form>
+                    </li>
+                  @endif
                 @else
                   <li class="nav-item">
                     <a class="nav-link" href="{{ route('login') }}">Se connecter</a>

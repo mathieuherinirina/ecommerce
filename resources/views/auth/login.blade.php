@@ -44,5 +44,7 @@
                 </x-jet-button>
             </div>
         </form>
+
+        <a href="/register"> S'enregistrer </a>
     </x-jet-authentication-card>
 </x-guest-layout>

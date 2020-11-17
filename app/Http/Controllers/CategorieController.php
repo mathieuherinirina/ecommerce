@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categorie;
 use Illuminate\Http\Request;
+use Session;
 
 class CategorieController extends Controller
 {
@@ -15,7 +16,8 @@ class CategorieController extends Controller
     public function index()
     {
         $categories = Categorie::all();
-        return view('categories.index', compact('categories','categories'));  
+        $currentUser = Session::get('currentUser');
+        return view('categories.index', compact('categories','categories'))->with('currentUser', $currentUser);
     }
 
     /**
@@ -58,7 +60,8 @@ class CategorieController extends Controller
     public function show($id)
     {
         $categorie = Categorie::findOrFail($id);
-        return view('categories.show', compact('categorie','categorie'));
+        $currentUser = Session::get('currentUser');
+        return view('categories.show', compact('categorie','categorie'))->with('currentUser', $currentUser);
     }
 
     /**
@@ -70,8 +73,8 @@ class CategorieController extends Controller
     public function edit($id)
     {
         $categorie = Categorie::find($id);
-
-        return view('categories.edit', compact('categorie','categorie'));
+        $currentUser = Session::get('currentUser');
+        return view('categories.edit', compact('categorie','categorie'))->with('currentUser', $currentUser);
     }
 
     /**

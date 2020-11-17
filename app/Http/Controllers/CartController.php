@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use Illuminate\Http\Request;
+use Session;
 
 class CartController extends Controller
 {
@@ -15,8 +16,8 @@ class CartController extends Controller
     public function index()
     {
         $carts = Cart::all();
-        return view('carts.index', compact('carts','carts'));
-
+        $currentUser = Session::get('currentUser');
+        return view('carts.index', compact('carts','carts'))->with('currentUser', $currentUser);
     }
 
     /**
@@ -26,8 +27,8 @@ class CartController extends Controller
      */
     public function create()
     {
-        return view('carts.create');
-
+        $currentUser = Session::get('currentUser');
+        return view('carts.create')->with('currentUser', $currentUser);
     }
 
     /**
@@ -60,7 +61,8 @@ class CartController extends Controller
     public function show($id)
     {
         $cart = Cart::findOrFail($id);
-        return view('carts.show', compact('cart','cart'));
+        $currentUser = Session::get('currentUser');
+        return view('carts.show', compact('cart','cart'))->with('currentUser', $currentUser);
  
     }
 
@@ -73,7 +75,8 @@ class CartController extends Controller
     public function edit($id)
     {
         $cart = Cart::find($id);
-        return view('carts.edit', compact('cart','cart'));
+        $currentUser = Session::get('currentUser');
+        return view('carts.edit', compact('cart','cart'))->with('currentUser', $currentUser);
  
     }
 

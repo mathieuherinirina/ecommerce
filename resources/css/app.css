@@ -101,3 +101,47 @@ form label {
   border-radius: 5px;
   color: #aeb8cc;
 }
+
+.logout-form {
+  padding:0;
+}
+
+.logout-form a {
+  color: white;
+}
+
+.logout-form a:hover {
+  background-color: transparent;
+}
+
+/* PRODUITS SUR LA HOMEPAGE */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-container .card {
+  margin: 20px 5px;
+}
+
+.card-container .card .card-img-top {
+  height: 200px;
+  width: auto;
+  object-fit: contain;
+}
+
+.card-container .card .card-title {
+  margin-bottom: .75rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.card-container .card .card-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
