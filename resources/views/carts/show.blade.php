@@ -9,20 +9,20 @@
         <div class="fiche">
             <dl>
                 <dt>Utilisateur</dt>
-                <dd>{{$cart->cart_user_id}}</dd>
+                <dd>{{$cart->username}}</dd>
 
                 <dt>Produit</dt>
-                <dd>{{$cart->cart_produit_id}}</dd>
+                <dd>{{$cart->productname}}</dd>
 
                 <dt>Statut</dt>
-                <dd>{{$cart->cart_status}}</dd>
+                <dd>{{$cart->paiement}}</dd>
 
             </dl>
 
             <div class="btn-wrapper">
-                <a href="{{route('carts/modifier', $cart)}}" class="btn btn-primary m-1">Modifier</a>
+                <a href="{{route('carts/modifier', $cart->id)}}" class="btn btn-primary m-1">Modifier</a>
 
-                <form action="{{ route('carts/supprimer/', $cart->id) }}" method="POST">
+                <form action="{{ route('carts/supprimer', $cart->id) }}" method="POST">
                     <input type="hidden" name="_method" value="DELETE">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <button class="btn btn-danger m-1">Supprimer</button>

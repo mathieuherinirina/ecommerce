@@ -27,7 +27,8 @@ class CategorieController extends Controller
      */
     public function create()
     {
-        return view('categories.create');
+        $currentUser = Session::get('currentUser');
+        return view('categories.create')->with('currentUser', $currentUser);
     }
 
     /**

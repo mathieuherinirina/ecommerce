@@ -17,7 +17,7 @@
         <div class="card-body">
             <h5 class="card-title">{{$produit->produit_nom}}</h5>
             <p>
-             Categorie: {{$produit->produit_categorie_id}}
+             Categorie: {{$produit->categoryName}}
             </p>
             <p class="card-text">
               {{$produit->produit_description}}
@@ -25,7 +25,12 @@
             <p>
              Prix: Ar {{$produit->produit_prix}}
             </p>
-            <a href="#" class="btn btn-primary">Ajouter à cart </a>
+            <form action="/carts/creer" method="POST">
+                <input type="hidden" name="cart_user_id" class="form-control" value={{ $currentUser->id }}>
+                <input type="hidden" name="cart_produit_id" class="form-control" value={{ $produit->id }}>
+                <input type="hidden" name="cart_status" class="form-control" value="0">
+                <input type="submit" value="Ajouter au panier" class="btn btn-success m-1">
+            </form>
             <a href="produits/{{$produit->id}}" class="btn btn-info m-1">Lire Details</a>
         </div>
     </div>

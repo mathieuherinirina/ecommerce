@@ -22,16 +22,26 @@
                 <dt>Description</dt>
                 <dd>{{$produit->produit_description}}</dd>
             </dl>
-
+            
             <div class="btn-wrapper">
-                <a href="{{route('produits/modifier', $produit->id)}}" class="btn btn-primary m-1">Modifier</a>
+                @if($currentUser->role === 'admin')
+                    <a href="{{route('produits/modifier', $produit->id)}}" class="btn btn-primary m-1">Modifier</a>
 
-                @method('DELETE')
-                <form action="{{ route('produits/supprimer', $produit->id) }}" method="POST">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <!-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> -->
-                    <button class="btn btn-danger m-1">Supprimer</button>
-                </form>
+                    @method('DELETE')
+                    <form action="{{ route('produits/supprimer', $produit->id) }}" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <!-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> -->
+                        <button class="btn btn-danger m-1">Supprimer</button>
+                    </form>
+                
+                @else
+                    <form action="/carts/creer" method="POST">
+                        <input type="hidden" name="cart_user_id" class="form-control" value={{ $currentUser->id }}>
+                        <input type="hidden" name="cart_produit_id" class="form-control" value={{ $produit->id }}>
+                        <input type="hidden" name="cart_status" class="form-control" value="0">
+                        <input type="submit" value="Ajouter au panier" class="btn btn-success m-1">
+                    </form>
+                @endif
             </div>
         </div>
         

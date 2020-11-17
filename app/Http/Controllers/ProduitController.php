@@ -19,7 +19,8 @@ class ProduitController extends Controller
         $produits = Produit::all();
         // $categories = Categorie::all();
         foreach ($produits as $key => $value) {
-            $categoryName = Categorie::find($value['produit_categorie_id'])->value('categorie_nom');
+            $categoryName = '';
+            $categoryName = Categorie::find($value['produit_categorie_id'])->categorie_nom;
             $produits[$key]['categoryName'] = $categoryName;
         }
         

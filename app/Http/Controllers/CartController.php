@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\User;
+use App\Models\Produit;
 use Illuminate\Http\Request;
 use Session;
 
@@ -15,8 +17,31 @@ class CartController extends Controller
      */
     public function index()
     {
-        $carts = Cart::all();
         $currentUser = Session::get('currentUser');
+        if($currentUser['role'] !== 'admin') {
+            $carts = Cart::where('cart_user_id', $currentUser->id)->get();
+        }
+        else {
+            $carts = Cart::all();
+        }
+
+        foreach ($carts as $key => $value) {
+            $username = '';
+            $username = User::find($value['cart_user_id'])->name;
+            $carts[$key]['username'] = $username;
+            
+            $productname = '';
+            $productname = Produit::find($value['cart_produit_id'])->produit_nom;
+            $carts[$key]['productname'] = $productname;
+
+            if ($value['cart_status'] === '0') {
+                $carts[$key]['paiement'] = 'Impayé';
+            }
+            else { 
+                $carts[$key]['paiement'] = 'Payé'; 
+            }
+        }
+
         return view('carts.index', compact('carts','carts'))->with('currentUser', $currentUser);
     }
 
@@ -61,6 +86,21 @@ class CartController extends Controller
     public function show($id)
     {
         $cart = Cart::findOrFail($id);
+        $username = '';
+        $username = User::find($cart['cart_user_id'])->name;
+        $cart['username'] = $username;
+        
+        $productname = '';
+        $productname = Produit::find($cart['cart_produit_id'])->produit_nom;
+        $cart['productname'] = $productname;
+
+        if ($cart['cart_status'] === '0') {
+            $cart['paiement'] = 'Impayé';
+        }
+        else { 
+            $cart['paiement'] = 'Payé'; 
+        }
+        
         $currentUser = Session::get('currentUser');
         return view('carts.show', compact('cart','cart'))->with('currentUser', $currentUser);
  

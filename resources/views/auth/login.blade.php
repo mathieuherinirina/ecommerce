@@ -1,9 +1,11 @@
 <x-guest-layout>
     <x-jet-authentication-card class="login-wrapper">
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
-
+        <div style="display:none!important;">
+            <x-slot name="logo">
+                
+            </x-slot>
+        </div>
+        
         <x-jet-validation-errors class="mb-4" />
 
         @if (session('status'))
